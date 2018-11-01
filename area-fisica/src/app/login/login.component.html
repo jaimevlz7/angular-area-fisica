@@ -1,0 +1,19 @@
+<!-- <input type="text" [(ngModel)]="username">
+<br>
+<button (click)="login()">Login</button>
+<br>
+<br> -->
+<div class="wrapper" style="height: -webkit-fill-available;">
+    <div class="login">
+          <p class="title">Log in</p>
+          <input type="text" [(ngModel)]="username" placeholder="Username">
+          <i class="fa fa-user"></i>
+          <input type="password" [(ngModel)]="password" placeholder="Password"/>
+          <i class="fa fa-key"></i>
+          <button (click)="login()">
+            <i class="spinner"></i>
+            <span class="state">Login</span>
+          </button>
+    </div>
+        <footer><a target="blank" href="http://www.yumbo.gov.co">Desarrollado Por Departamento Administrativo de Planeación e Informática</a></footer>
+  </div>

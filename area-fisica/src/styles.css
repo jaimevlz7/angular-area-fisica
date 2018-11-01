@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+.dropdown_css .ui-dropdown label {
+    font-size: 13px !important;
+    padding-top: 11px !important;
+    padding-bottom: 11px !important;
+}

@@ -1,0 +1,168 @@
+<div class="tab-pane active" id="item-1" style="height: -webkit-fill-available;">
+  <div class="card card-nav-tabs" style="margin-bottom: 0px;">
+    <div class="card-header card-header-primary">
+      <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+      <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+          <ul class="nav nav-tabs" data-tabs="tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#addClient" data-toggle="tab">
+                <i class="material-icons">face</i> Agregar Cliente
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#listClient" data-toggle="tab">
+                <i class="material-icons">list</i> Lista de Clientes
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="tab-content">
+        <div class="tab-pane active" id="addClient">
+          <h3 class="first">Agregar Cliente</h3>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-2">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="ID Cliente">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-10">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Nombre del CLiente">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="tipoID"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="No Cédula">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-12">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Observación">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Télefono">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Celular">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-12">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Dirección">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="departamento"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="municipio"></p-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="barrio"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="pais"></p-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div align="right">
+            <!-- <p-button label="Anterior" style="padding-left:20px;padding-right:20px"></p-button> -->
+            <p-button label="Agregar Cliente" style="padding-left:20px;"></p-button>
+          </div>
+        </div>
+        <br>
+        <div class="tab-pane" id="listClient">
+          <br>
+          <div>
+            <p-table [columns]="cols" [value]="licencias">
+              <ng-template pTemplate="caption">
+                Lista de Clientes
+              </ng-template>
+              <ng-template pTemplate="header" let-columns>
+                <tr>
+                  <th>Cedula Cliente</th>
+                  <th>Nombre Cliente</th>
+                  <th>Celular</th>
+                  <th>Dirección</th>
+                  <th>Estado</th>
+                  <th>Cantidad de Predios</th>
+                  <th style="width:8em" align="center">Ver Cliente</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td align="center">
+                    <button pButton icon="pi pi-search" (click)="irObservacion(rowData)"></button>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

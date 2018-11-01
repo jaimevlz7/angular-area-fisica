@@ -1,0 +1,43 @@
+<div style="height: -webkit-fill-available;">
+        <p-table [columns]="cols" [value]="licencias" [paginator]="true" [rows]="8">
+            <ng-template pTemplate="caption">
+                Licencias Pendientes
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th style="width:10em">Código SAC</th>
+                    <th style="width:10em">Solicitante</th>
+                    <th style="width:8em">No. Predial</th>
+                    <th style="width:14em">Matricula Inmobilaria</th>
+                    <th style="width:8em">Tipo Predio</th>
+                    <th style="width:11em">Fecha de registro</th>
+                    <th style="width:6em">Estado</th>
+                    <th>Observación Juridica</th>
+                    <th>Observación Arquitectonica</th>
+                    <th>Observación Estructural</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="center" routerLinkActive="active">
+                        <button pButton icon="pi pi-search" (click)="irObservacion(rowData)" [routerLink]="['verlicencia']"></button>
+                    </td>
+                    <td align="center" routerLinkActive="active">
+                        <button pButton icon="pi pi-search" (click)="irObservacion(rowData)" [routerLink]="['verlicencia']"></button>
+                    </td>
+                    <td align="center" routerLinkActive="active">
+                        <button pButton icon="pi pi-search" (click)="irObservacion(rowData)" [routerLink]="['verlicencia']"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <br>
+        <router-outlet></router-outlet>
+    </div>

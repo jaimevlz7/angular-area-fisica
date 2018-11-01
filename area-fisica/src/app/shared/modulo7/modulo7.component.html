@@ -1,0 +1,29 @@
+<div style="height: -webkit-fill-available;">
+  <p-table [value]="listaHolita">
+      <ng-template pTemplate="caption">
+          Lista de Predios
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Tipo de Predio</th>
+              <th>No Predial</th>
+              <th>Dirección</th>
+              <th>Tipo ID</th>
+              <th>ID Dueño (Cédula)</th>
+              <th>Área Construida</th>
+              <th>Área Total</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-areglo>
+          <tr>
+              <td>{{areglo}}</td>
+              <td>{{areglo}}</td>
+              <td>{{areglo}}</td>
+              <td>{{areglo}}</td>
+              <td>{{areglo}}</td>
+              <td>{{areglo}}</td>
+              <td>{{areglo}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>
