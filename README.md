@@ -1,2 +1,2 @@
-# mvn-area-fisica
-Área Física Backend
+# angular-area-fisica
+Área Física FrontEnd
