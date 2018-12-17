@@ -1,0 +1,9 @@
+<div class="col-md-12" style="background: white; padding-left: 0px; padding-right: 0px; height: 100%;">
+    <ul class="nav nav-pills nav-pills-icons flex-column" role="tablist" style="padding-left: 0px; padding-right: 0px;">
+      <li class="nav-item" *ngFor="let item of tabla">
+        <a class="nav-link active" [routerLink]="item.modulo" role="tab" data-toggle="tab">
+          <i class="material-icons">{{item.icon}}</i> {{item.nombre}}
+        </a>
+      </li>
+    </ul>
+  </div>

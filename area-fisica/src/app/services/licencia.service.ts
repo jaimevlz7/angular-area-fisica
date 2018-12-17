@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
+import { Constant } from '../config/constant';
 
 
 @Injectable({
@@ -12,11 +13,11 @@ export class LicenciaService {
 
   crearLicencia(licencia: any){
 
-    return this.http.post("http://localhost:8080/licencia/crear",licencia);
+    return this.http.post(Constant.API_ENDPOINT + "/licencia/crear",licencia);
   }
 
   obtenerLicencias(){
 
-    return this.http.get("http://localhost:8080/licencia/licencias");
+    return this.http.get(Constant.API_ENDPOINT + "/licencia/licencias");
   }
 }

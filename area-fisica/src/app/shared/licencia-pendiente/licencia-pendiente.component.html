@@ -1,0 +1,104 @@
+<!-- <hr>
+ <input type="text" name="holo"  [(ngModel)]="poder_de_angular"> 
+ <h1>{{poder_de_angular | uppercase }} </h1>
+ <input type="text" name="holo"  [value]="poder_de_angular"> 
+ <div *ngIf="juandavid_caballo_de_angular">Caballo de troya</div>
+ <div *ngIf="!juandavid_caballo_de_angular">Caballo de troyita</div>
+ <button (click)="funcionCaballo()">dadada</button>
+ <button (click)="juandavid_caballo_de_angular =!juandavid_caballo_de_angular">dadada</button>
+
+
+
+ <div *ngFor="let cualquiernombre of yanoquiero">
+
+    <h1>{{cualquiernombre.title}}</h1>
+    <hr>
+    <p>{{cualquiernombre.description}}</p>
+    <br>
+
+ </div>
+
+
+ 
+ <div *ngFor="let holita of listaHolita">
+
+    <h1>{{holita | uppercase}}</h1>
+
+ </div> -->
+<!-- <br>
+<form>
+    <input type="text" name="prueba" placeholder="prueba"    [(ngModel)]="prueba"> 
+    <br>
+    <br>
+    <input type="text" name="nombre" placeholder="nombre"  [(ngModel)]="nombre"> 
+    <br>
+    <br>
+    <button (click)="crearLicencia()">crear</button>  
+</form> -->
+<!-- 
+<div style="height: -webkit-fill-available;">
+    <p-table [value]="listaHolita">
+        <ng-template pTemplate="caption">
+            Licencias Pendientes
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre Solicitante</th>
+                <th>Radicado SAC</th>
+                <th>Observación</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-areglo>
+            <tr *ngFor="let item of licencias">
+                <td>{{item.nombre}}</td>
+                <td>{{item.codigoSac}}</td>
+                <td><button>dada</button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div> -->
+<div style="height: -webkit-fill-available;">
+    <p-table [columns]="cols" [value]="licencias" [responsive]="true" [paginator]="true" [rows]="8">
+        <ng-template pTemplate="caption">
+            Licencias Pendientes
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+
+                <th *ngFor="let col of columns" align="center">
+                    <div align="center">
+                        {{col.header}}
+                    </div>
+                </th>
+                <th>
+                    <div align="center">Juridico</div>
+                </th>
+                <th>
+                    <div align="center">Arquitectonico</div>
+                </th>
+                <th>
+                    <div align="center">Estructural</div>
+                </th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td>
+                <td align="center" routerLinkActive="active">
+                    <button pButton icon="pi pi-search" (click)="irObservacion(rowData)" [routerLink]="['verlicencia']"></button>
+                </td>
+                <td align="center" routerLinkActive="active">
+                    <button pButton icon="pi pi-search" (click)="irObservacion(rowData)" [routerLink]="['verlicencia']"></button>
+                </td>
+                <td align="center" routerLinkActive="active">
+                    <button pButton icon="pi pi-search" (click)="irObservacion(rowData)" [routerLink]="['verlicencia']"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <br>
+    <router-outlet></router-outlet>
+</div>

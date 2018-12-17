@@ -1,0 +1,407 @@
+<!-- <div class="tab-pane active" id="item-1" >
+  <div class="card card-nav-tabs" style="margin-bottom: 0px;">
+    <div class="card-header card-header-primary">
+      <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+          <ul class="nav nav-tabs" data-tabs="tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#infoBasica" data-toggle="tab">
+                <i class="material-icons">add</i>Agregar Usuario
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="tab-content">
+        <div class="tab-pane active" id="infoBasica">
+          <h3 class="first">Agregar Usuario</h3>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Username">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="password" pInputText placeholder="password">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Correo del Usuario">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="tipoRol"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="No de Contacto">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-12">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Nombre Completo del Usuario">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-12">
+              <div class="ui-inputgroup">
+                <p-button  label="Agregar Usuario Nuevo"></p-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="tab-pane active" id="item-1" >
+  <div class="card card-nav-tabs" style="margin-bottom: 0px;">
+    <div class="card-header card-header-primary">
+      <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+      <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+          <ul class="nav nav-tabs" data-tabs="tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#infoBasica" data-toggle="tab">
+                <i class="material-icons">format_align_justify</i> Administrar Grupos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#infoAdicional" data-toggle="tab">
+                <i class="material-icons">note_add</i> Información Adicional
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#infoLicencias" data-toggle="tab">
+                <i class="material-icons">check_box</i> Licencias
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="tab-content">
+        <div class="tab-pane active" id="infoBasica">
+          <h3 class="first">Información Básica</h3>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-2">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" [(ngModel)]="licencia.codigoSac" pInputText placeholder="Codigo SAC">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-10">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" [(ngModel)]="licencia.nombre" pInputText placeholder="Nombre de la licencia">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown [(ngModel)]="cliente.tipoDocumento" class="dropdown_css" [autoWidth]="false" [options]="tipoID"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input [(ngModel)]="cliente.numeroDocumento" type="text" pInputText placeholder="No Cédula" (blur)="completarClientePorNumeroDoc()">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid" [formGroup]="clienteform" >
+            <div class="ui-g-12 ui-md-12">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input  formControlName="nombreCliente" type="text" pInputText placeholder="Nombre del Cliente">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Télefono">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Matricula Inmobiliaría">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <h3 class="first">Estado</h3>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="No. Predial">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="pais"></p-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="departamento"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="municipio"></p-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+                <input type="text" pInputText placeholder="Dirección">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="barrio"></p-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <h3 class="first">Información Del Documento</h3>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="area"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="zona"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p-dropdown class="dropdown_css" [autoWidth]="false" [options]="documento"></p-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div align="right">
+            <!-- <p-button label="Anterior" style="padding-left:20px;padding-right:20px"></p-button> -->
+            <p-button (click)="guardar()" label="Siguiente" style="padding-left:20px;"></p-button>
+          </div>
+        </div>
+        <div class="tab-pane" id="infoAdicional">
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-12">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p><strong>¿Para qué se esta realizando la licencia?:</strong></p>
+                  <p-editor [(ngModel)]="textoEditor1" [style]="{'height':'300px'}"></p-editor>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-12">
+              <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12">
+                  <p><strong>Observaciones Adicionales:</strong></p>
+                  <p-editor [(ngModel)]="textoEditor2" [style]="{'height':'300px'}"></p-editor>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div align="right">
+            <p-button label="Anterior" style="padding-left:20px;padding-right:20px"></p-button>
+            <p-button label="Siguiente"></p-button>
+          </div>
+        </div>
+        <div class="tab-pane" id="infoLicencias">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="ui-g" style="width:300px;margin-bottom:10px">
+                  <h4><strong>Tipo de Tramite</strong></h4>
+                  <hr>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="tramite" value="Licencia Parcelación" label="Licencia Parcelación" [(ngModel)]="selectedTramite"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="tramite" value="Licencia Urbanización" label="Licencia Urbanización" [(ngModel)]="selectedTramite"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="tramite" value="Licencia Sub-División" label="Licencia Sub-División" [(ngModel)]="selectedTramite"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="tramite" value="Licencia Construcción" label="Licencia Construcción" [(ngModel)]="selectedTramite"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="tramite" value="Licencia de Reconocimiento" label="Licencia de Reconocimiento" [(ngModel)]="selectedTramite"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="tramite" value="Licencia Propiedad Horizontal" label="Licencia Propiedad Horizontal" [(ngModel)]="selectedTramite"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="tramite" value="Licencia Movimiento Tierras" label="Licencia Movimiento Tierras" [(ngModel)]="selectedTramite"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="tramite" value="Licencia Ocupación Espacio Publico" label="Licencia Ocupación Espacio Publico" [(ngModel)]="selectedTramite"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="tramite" value="Licencia Intervención Espacio Publico" label="Licencia Intervención Espacio Publico" [(ngModel)]="selectedTramite"></p-radioButton>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="ui-g" style="width:300px;margin-bottom:10px">
+                  <h4><strong>Modalidad de Construcción</strong></h4>
+                  <hr>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="modalidad" value="Obra Nueva" label="Obra Nueva" [(ngModel)]="selectedModalidad"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="modalidad" value="Ampliación" label="Ampliación" [(ngModel)]="selectedModalidad"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="modalidad" value="Adecuación" label="Adecuación" [(ngModel)]="selectedModalidad"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="modalidad" value="Modificación" label="Modificación" [(ngModel)]="selectedModalidad"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="modalidad" value="Reconstrucción" label="Reconstrucción" [(ngModel)]="selectedModalidad"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="modalidad" value="Reforzamiento Estructural" label="Reforzamiento Estructural" [(ngModel)]="selectedModalidad"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="modalidad" value="Demolición Total" label="Demolición Total" [(ngModel)]="selectedModalidad"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="modalidad" value="Demolición Parcial" label="Demolición Parcial" [(ngModel)]="selectedModalidad"></p-radioButton>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-radioButton name="modalidad" value="Cerramiento" label="Cerramiento" [(ngModel)]="selectedModalidad"></p-radioButton>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="ui-g" style="width:300px;margin-bottom:10px">
+                  <h4><strong>Modalidad Licencia Sub-División</strong></h4>
+                  <hr>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-checkbox name="modalidad-sub-division" value="Sub-División Rural" label="Sub-División Rural"
+                      [(ngModel)]="selectedModalidadSub" inputId="ny"></p-checkbox>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-checkbox name="modalidad-sub-division" value="Sub-División Urbana" label="Sub-División Urbana"
+                      [(ngModel)]="selectedModalidadSub" inputId="ny"></p-checkbox>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-checkbox name="modalidad-sub-division" value="Reloteo" label="Reloteo" [(ngModel)]="selectedModalidadSub"
+                      inputId="ny"></p-checkbox>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="ui-g" style="width:300px;margin-bottom:10px">
+                  <h4><strong>Vivienda de Interes Social</strong></h4>
+                  <hr>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-checkbox name="interes" value="Sí" label="Sí" [(ngModel)]="selectedInteres" inputId="ny"></p-checkbox>
+                  </div>
+                </div>
+                <div class="ui-g" style="width:300px;margin-bottom:10px">
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-checkbox name="interes" value="No" label="No" [(ngModel)]="selectedInteres" inputId="ny"></p-checkbox>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="ui-g" style="width:300px;margin-bottom:10px">
+                  <h4><strong>Objeto del Tramite</strong></h4>
+                  <hr>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-checkbox name="objeto" value="Inicial" label="Inicial" [(ngModel)]="selectedObjeto" inputId="ny"></p-checkbox>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-checkbox name="objeto" value="Prorroga" label="Prorroga" [(ngModel)]="selectedObjeto" inputId="ny"></p-checkbox>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-checkbox name="objeto" value="Modificación" label="Modificación" [(ngModel)]="selectedObjeto"
+                      inputId="ny"></p-checkbox>
+                  </div>
+                  <div style="width:300px;margin-bottom:10px">
+                    <p-checkbox name="objeto" value="Revalidación" label="Revalidación" [(ngModel)]="selectedObjeto"
+                      inputId="ny"></p-checkbox>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div align="right">
+            <p-button label="Anterior" style="padding-left:20px;padding-right:20px"></p-button>
+            <p-button  label="Agregar Licencia"></p-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

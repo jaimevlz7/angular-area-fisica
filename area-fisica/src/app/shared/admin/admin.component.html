@@ -1,0 +1,136 @@
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-4">
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+      <div class="ui-grid-col-12">
+        <h3><strong>Juridico:</strong></h3>
+        <p-listbox [options]="juridico" [(ngModel)]="selectedJuridico" [listStyle]="{'max-height':'250px'}">
+          <ng-template let-juridico pTemplate="item">
+            <span>{{juridico.value}}</span>
+          </ng-template>
+          <p-footer>
+            Selected: {{selectedJuridico||'none'}}
+          </p-footer>
+        </p-listbox>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-4">
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+      <div class="ui-grid-col-12">
+        <h3>Arquitectonico</h3>
+        <p-listbox [options]="arquitectonico" [(ngModel)]="selectedArquitectonico" [listStyle]="{'max-height':'250px'}">
+          <ng-template let-arquitectonico pTemplate="item">
+            <span>{{arquitectonico.value}}</span>
+          </ng-template>
+          <p-footer>
+            Selected: {{selectedArquitectonico||'none'}}
+          </p-footer>
+        </p-listbox>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-4">
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+      <div class="ui-grid-col-12">
+        <h3>Estructural</h3>
+        <p-listbox [options]="estructural" [(ngModel)]="selectedEstructural" [listStyle]="{'max-height':'250px'}">
+          <ng-template let-estructural pTemplate="item">
+            <span>{{estructural.value}}</span>
+          </ng-template>
+          <p-footer>
+            Selected: {{selectedEstructural||'none'}}
+          </p-footer>
+        </p-listbox>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-10">
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon"><i class="pi pi-star"></i></span>
+      <input type="text" pInputText [(ngModel)]="property"/>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-2">
+    <div class="ui-inputgroup">
+      <p-button  label="Agregar Grupo"></p-button>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+      <div class="ui-grid-col-12">
+        <h3><strong>Grupos:</strong></h3>
+        <p-listbox [options]="grupo" [(ngModel)]="selectedGrupo" [listStyle]="{'max-height':'250px'}">
+          <ng-template let-grupo pTemplate="item">
+            <span>{{grupo.value}}</span>
+          </ng-template>
+          <p-footer>
+            Selected: {{selectedGrupo||'none'}}
+          </p-footer>
+        </p-listbox>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+      <div class="ui-grid-col-12">
+        <h3>Licencia:</h3>
+        <p-listbox [options]="licencia" [(ngModel)]="selectedLicencia" [listStyle]="{'max-height':'250px'}">
+          <ng-template let-licencia pTemplate="item">
+            <span>{{licencia.value}}</span>
+          </ng-template>
+          <p-footer>
+            Selected: {{selectedLicencia||'none'}}
+          </p-footer>
+        </p-listbox>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-12">
+    <div class="ui-inputgroup">
+      <p-button  label="Asignar Grupo a Licencia"></p-button>
+    </div>
+  </div>
+</div>
+<hr>
+<p-table [columns]="cols" [value]="licencias" [responsive]="true" [paginator]="true" [rows]="8">
+  <ng-template pTemplate="caption">
+      Licencias Asignadas
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+      <tr>
+
+          <th>
+              <div align="center">
+                  Licencia
+              </div>
+          </th>
+          <th>
+            <div align="center">
+                Grupo
+            </div>
+        </th>
+        <th>
+          <div align="center">
+              Editar
+          </div>
+      </th>
+
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </ng-template>
+</p-table>
